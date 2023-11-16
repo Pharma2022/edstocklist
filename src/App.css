@@ -1,42 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ... Your existing styles ... */
+
+.App {
+  /* Your existing styles for the .App container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  min-height: 100vh; /* Add this line to ensure the container takes the full height of the viewport */
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.flex-col {
+  /* Your existing styles for the .flex-col container */
+  margin-bottom: 1em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+input {
+  /* Your existing styles for the input */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  color: navy;
+  background-color: #f2f2f2;
+}
+
+/* Add the following styles to make the table responsive */
+@media (max-width: 767px) {
+  th, td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
   }
-  to {
-    transform: rotate(360deg);
+
+  td:first-child {
+    text-align: left; /* Align text at the top for the first column in mobile view */
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
