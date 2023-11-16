@@ -1,32 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useState,useEffect } from 'react'
+import stock from './stock.json'
 import './App.css'
-
+import {nanoid} from 'nanoid'
 function App() {
-  const [count, setCount] = useState(0)
 
+
+  const [input, setInput] = useState("");
+  const [stocks,setStocks]=useState(stock)
+  const [stocklist,setStockList]=useState(Object.keys(stocks))
+  const [tableHtml,setTableHtml]=useState([])
+  const [dropDownVisible, setdropDownVisible] = useState(false)
+  const handleChange = ({target:{value}}) => setInput(value)
+  const showDropDown = ()=>setdropDownVisible(true)
+  console.log(stocklist)
+
+  useEffect(()=>{},[stocks])
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+       <div className="flex-col">
+        <label htmlFor="input">Type a medicine</label>
+        <input
+            name="input"
+            type="text"
+            list="stock"
+            value={input}
+            onChange={handleChange}
+            onSelect={()=>{}}
+            
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {dropDownVisible && (
+        <datalist id="stock">
+          {stocklist.map((item) => (
+            <option  key={nanoid()}>
+              {item}
+            </option>
+          ))}
+        </datalist>
+      )}
+        <table>
+            <tr>
+              <th>Drug Name</th>
+              <th>Location</th>
+            </tr>
+            {/* 
+            dynamically render a list of rows in the format
+            
+            // step 1 get drug name- filter stocklist
+            
+            // step 2 get drug stock locations 
+            <tr>
+            stock.get(['Drug Name])- will return an array- iterate over array
+            
+            <td>{****DRUG NAME***}</td>
+              <td><****DRUG LOCATION***}</td>
+            </tr>
+            
+            
+            */}
+        </table>
     </div>
   )
 }
