@@ -29,6 +29,7 @@ th, td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  color: rgb(20, 20, 48);
 }
 
 th {
@@ -36,18 +37,20 @@ th {
 }
 
 /* Add the following styles to ensure two columns even on smaller screens */
+/* Add the following styles to ensure two columns even on smaller screens */
 @media (max-width: 767px) {
-  td {
+  td, th {
     display: flex;
     flex-wrap: wrap;
   }
 
-  td div {
+  td div, th div {
     flex: 1 0 50%; /* Set a specific width for each column */
     box-sizing: border-box;
   }
 
-  td:first-child div {
+  td:first-child div, th:first-child div {
     text-align: left; /* Align text at the top for the first column in mobile view */
   }
 }
+
