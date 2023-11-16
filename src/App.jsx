@@ -37,7 +37,7 @@ function App() {
       );
     });
 
-    setTableRows(rows);
+    setTableRows(rows );
   }, [input, stocks, stocklist]);
 
   return (
