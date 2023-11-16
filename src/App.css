@@ -1,24 +1,20 @@
-/* ... Your existing styles ... */
-
 .App {
-  /* Your existing styles for the .App container */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  min-height: 100vh; /* Add this line to ensure the container takes the full height of the viewport */
-
+  min-height: 100vh;
 }
 
-
 .flex-col {
-  /* Your existing styles for the .flex-col container */
   margin-bottom: 1em;
 }
 
 input {
-  /* Your existing styles for the input */
   width: 100%;
   box-sizing: border-box;
 }
@@ -36,19 +32,22 @@ th, td {
 }
 
 th {
-  color: navy;
   background-color: #f2f2f2;
 }
 
-/* Add the following styles to make the table responsive */
+/* Add the following styles to ensure two columns even on smaller screens */
 @media (max-width: 767px) {
-  th, td {
-    display: block;
-    width: 100%;
+  td {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  td div {
+    flex: 1 0 50%; /* Set a specific width for each column */
     box-sizing: border-box;
   }
 
-  td:first-child {
+  td:first-child div {
     text-align: left; /* Align text at the top for the first column in mobile view */
   }
 }
