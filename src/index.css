@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 1.8rem;
   line-height: 1.1;
 }
 
@@ -73,19 +73,4 @@ table{
   border: 1px solid darkgray;
   
   max-width: 100%;
-}
-@media(min-width:700px){
-table{max-width: 700px;}
-}
-
-th{
-  background-color: lightgray;
-  color:darkslategrey
-}
-td{
-  border:  1px solid lightgray;
-  vertical-align: top;
-}
-.App{
-  width: 100vw;
 }

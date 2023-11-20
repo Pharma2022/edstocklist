@@ -34,23 +34,27 @@ function App() {
                   ))}
                 </datalist>
               )}
-            <table>
-            <thead>
-          <tr>
-            <th>Drug Name</th>
-            <th>Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableRows.length > 0 ? (
-            tableRows
-          ) : (
-            <tr>
-              <td colSpan="2">No matching drugs found</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+
+              <div className="container flex-col">
+
+                  <table>
+                  <thead>
+                <tr>
+                  <th>Drug Name</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tableRows.length > 0 ? (
+                  tableRows
+                ) : (
+                  <tr>
+                    <td colSpan="2">No matching drugs found</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+              </div>
       </div>
     </div>
   );

@@ -1,3 +1,7 @@
+html{
+  font-size: .8rem;
+}
+
 #root {
   width: 100vw;
   max-width: 900px;
@@ -55,10 +59,44 @@
   color: #888;
 }
 
-.App{
-  text-align: left;
-}
+
 h1{
   text-align: center;
   margin-bottom: 1rem;
+}
+
+
+
+.container{
+  max-width: 100%;
+  padding-inline:.75rem;
+
+}
+
+@media(min-width :768px){
+  .container{
+    max-width: 700px;
+    padding-inline: 1.5rem;
+  }
+  html{
+    font-size: .95rem;;
+  }
+}
+
+table{
+  text-align: left;
+}
+th{
+  background-color: lightgray;
+  color:darkslategrey
+}
+td{
+  border:  1px solid lightgray;
+  vertical-align: top;
+  width: 50%;
+  word-break: break-all;
+}
+
+.App{
+  max-width: 100vw;
 }

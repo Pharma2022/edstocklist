@@ -22,8 +22,8 @@ const useStock = (data) => {
 
     // Create table rows based on the filtered stocklist
     const rows = filteredStockList.map(item => {
-      const locations = stocks[item].map((location, index) => (
-        <div key={index}>{location}</div>
+      const locations = stocks[item].sort().map((location, index) => (
+        <div key={index}>{location+'\n'}</div>
       ));
 
       return (
