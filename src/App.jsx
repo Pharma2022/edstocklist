@@ -1,67 +1,41 @@
-import { useState, useEffect } from 'react';
+
 import stock from './stock.json';
+import wards from './wardstocklist.json'
 import './App.css';
 import { nanoid } from 'nanoid';
+import useStock from './hooks/useStock';
 
 function App() {
-  const [input, setInput] = useState("");
-  const [stocks, setStocks] = useState(stock);
-  const [stocklist, setStockList] = useState(Object.keys(stocks));
-  const [tableRows, setTableRows] = useState([]);
-  const [dropDownVisible, setDropDownVisible] = useState(false);
-
-  const handleChange = ({ target: { value } }) => {
-    setInput(value);
-    setDropDownVisible(true); // Show dropdown on input change
-  };
-
-  useEffect(() => {
-    // Filter stocklist based on the input
-    const filteredStockList = stocklist.filter(item =>
-      item.toLowerCase().includes(input.toLowerCase())
-    );
-
-    // Create table rows based on the filtered stocklist
-    const rows = filteredStockList.map(item => {
-      const locations = stocks[item].map((location, index) => (
-        <div key={index}>{location}</div>
-      ));
-
-      return (
-
-
-        <tr key={nanoid()}>
-          <td>{item}</td>
-          <td>{locations}</td>
-        </tr>
-      );
-    });
-
-    setTableRows(rows );
-  }, [input, stocks, stocklist]);
+  
+    const {input,handleChange,dropDownVisible,stocklist,tableRows}=useStock(stock)
 
   return (
     <div className="App">
+
+      {/* OOH STOCKLIST / WARD STOCKLIST*/}
       <div className="flex-col">
-<h1>NMUH Drug Locations</h1>
-        <label htmlFor="input">Type a medicine</label>
-        <input
-          name="input"
-          type="text"
-          list="stock"
-          value={input}
-          onChange={handleChange}
-        />
-      </div>
-      {!dropDownVisible && (
-        <datalist id="stock">
-          {stocklist.map((item) => (
-            <option key={nanoid()}>{item}</option>
-          ))}
-        </datalist>
-      )}
-      <table>
-        <thead>
+
+        {/* BrowserRouter */}
+
+          <h1>NMUH Drug Locations</h1>
+              <label htmlFor="input">Type a medicine</label>
+                  <input
+                    name="input"
+                    type="text"
+                    list="stock"
+                    value={input}
+                    onChange={handleChange}
+                  />
+   
+              {!dropDownVisible && (
+                <datalist id="stock">
+                  {stocklist.map((item) => (
+                    <option key={nanoid()}>{item}</option>
+                  ))}
+                </datalist>
+              )}
+            <table>
+            <thead>
           <tr>
             <th>Drug Name</th>
             <th>Location</th>
@@ -77,6 +51,7 @@ function App() {
           )}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
