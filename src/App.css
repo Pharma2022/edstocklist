@@ -23,6 +23,16 @@ html{
   margin-inline: auto;
 }
 
+.flex-row{
+  display: flex;
+
+}
+.space-around{
+  justify-content: space-around;
+}
+.space-between{
+  justify-content: space-between;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -68,9 +78,20 @@ h1{
 
 
 .container{
-  max-width: 100%;
+  width: 100%;
   padding-inline:.75rem;
 
+}
+.nav-container{
+  padding-block: 1rem .5rem;
+  transform: translateY(3rem)
+
+}
+.nav-link{
+  text-align: right;
+  margin-inline: auto 0;
+
+  
 }
 
 @media(min-width :768px){
