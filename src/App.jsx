@@ -18,6 +18,7 @@ function App() {
               <Route path='/ward' element={<Ward/>}/>
           </Route>
         </Routes>
+        
         </BrowserRouter>
 
 
